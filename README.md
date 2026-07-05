@@ -207,15 +207,17 @@ Dark mode is fully supported — no extra configuration.
 
 ## Publishing to pub.dev
 
-Tag a release:
+Publishing is manual (the GitHub Actions auto-publish workflow was removed —
+it hung indefinitely on the `dart pub publish` step):
 
 ```bash
-git tag v1.0.0
+dart analyze
+dart format --set-exit-if-changed .
+dart pub publish --dry-run
+dart pub publish
+git tag vX.Y.Z
 git push --tags
 ```
-
-The GitHub Actions workflow in `.github/workflows/publish.yml` will analyze,
-format-check, and publish to pub.dev automatically.
 
 ## License
 
