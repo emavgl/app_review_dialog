@@ -257,10 +257,11 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
         _dismiss();
-        return false;
       },
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),

@@ -1,3 +1,13 @@
+## 2.0.1
+
+- Shortened the pubspec description to fit pub.dev's length guidelines.
+- Replaced deprecated `WillPopScope` with `PopScope`; bumped the minimum
+  Flutter SDK to 3.22.0 accordingly.
+- Raised the minimum `url_launcher` constraint to `^6.1.0` (the lowest
+  version that provides the `LaunchMode` API this package relies on),
+  fixing `dart pub downgrade` resolution.
+- Added an `example/` app.
+
 ## 2.0.0
 
 - **Breaking:** `AppReviewDialog.show()` now always returns a non-null
