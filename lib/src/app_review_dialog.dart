@@ -6,7 +6,12 @@ import 'package:url_launcher/url_launcher.dart';
 import 'strings.dart';
 
 /// Result returned by [AppReviewDialog.show].
-enum AppReviewDialogAction { ratedPositive, ratedNegative, dismissed }
+enum AppReviewDialogAction {
+  ratedPositive,
+  ratedNegative,
+  cancelled,
+  dismissed
+}
 
 class AppReviewDialogResult {
   final double rating;
@@ -40,7 +45,7 @@ class AppReviewDialog extends StatefulWidget {
   ///
   /// If [locale] is not provided, the device locale is auto-detected.
   /// Every string shown in the dialog can be overridden.
-  static Future<AppReviewDialogResult?> show(
+  static Future<AppReviewDialogResult> show(
     BuildContext context, {
     required String supportEmail,
     String? storePackageName,
@@ -58,8 +63,8 @@ class AppReviewDialog extends StatefulWidget {
     String? supportButtonLabel,
     String? emailButtonLabel,
     String? continueButtonLabel,
-  }) {
-    return showDialog<AppReviewDialogResult>(
+  }) async {
+    final result = await showDialog<AppReviewDialogResult>(
       context: context,
       barrierDismissible: true,
       builder: (_) => AppReviewDialog(
@@ -81,6 +86,11 @@ class AppReviewDialog extends StatefulWidget {
         continueButtonLabel: continueButtonLabel,
       ),
     );
+    // Tapping the modal barrier closes the dialog without going through
+    // _dismiss(), returning null. Normalise that into a proper dismissed
+    // result so callers never have to special-case null.
+    return result ??
+        const AppReviewDialogResult(0.0, AppReviewDialogAction.dismissed);
   }
 
   static Locale _detectLocale() {
@@ -93,6 +103,7 @@ class AppReviewDialog extends StatefulWidget {
       return const Locale('en');
     }
   }
+
   final String supportEmail;
   final String? storePackageName;
   final String? appStoreId;
@@ -182,9 +193,17 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
 
   // Actions ---------------------------------------------------------
 
+  /// User backed out via the device back button/gesture.
   void _dismiss() {
     Navigator.of(context).pop(
       AppReviewDialogResult(_rating, AppReviewDialogAction.dismissed),
+    );
+  }
+
+  /// User tapped an explicit "Cancel" button.
+  void _cancel() {
+    Navigator.of(context).pop(
+      AppReviewDialogResult(_rating, AppReviewDialogAction.cancelled),
     );
   }
 
@@ -206,10 +225,8 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
           httpsFallback:
               'https://play.google.com/store/apps/details?id=${widget.storePackageName}');
     } else if (Platform.isIOS && widget.appStoreId != null) {
-      _openUrl(
-          'itms-apps://itunes.apple.com/app/id${widget.appStoreId}',
-          httpsFallback:
-              'https://apps.apple.com/app/id${widget.appStoreId}');
+      _openUrl('itms-apps://itunes.apple.com/app/id${widget.appStoreId}',
+          httpsFallback: 'https://apps.apple.com/app/id${widget.appStoreId}');
     }
     Navigator.of(context).pop(
       AppReviewDialogResult(_rating, AppReviewDialogAction.ratedPositive),
@@ -279,7 +296,8 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(_l(widget.title, (s) => s.title),
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
             textAlign: TextAlign.center),
         const SizedBox(height: 24),
         GestureDetector(
@@ -314,7 +332,7 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
           children: [
             Expanded(
               child: OutlinedButton(
-                onPressed: _dismiss,
+                onPressed: _cancel,
                 child: Text(cancelLabel),
               ),
             ),
@@ -322,7 +340,8 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
             Expanded(
               child: FilledButton(
                 onPressed: _rating > 0 ? _onContinue : null,
-                child: Text(_l(widget.continueButtonLabel, (s) => s.continueLabel)),
+                child: Text(
+                    _l(widget.continueButtonLabel, (s) => s.continueLabel)),
               ),
             ),
           ],
@@ -341,7 +360,8 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
         Icon(Icons.mail_outline, size: 40, color: cs.primary),
         const SizedBox(height: 16),
         Text(_l(widget.negativeTitle, (s) => s.negativeTitle),
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
             textAlign: TextAlign.center),
         const SizedBox(height: 8),
         Text(_l(widget.negativeSubtitle, (s) => s.negativeSubtitle),
@@ -357,7 +377,7 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
         ),
         const SizedBox(height: 4),
         TextButton(
-          onPressed: _dismiss,
+          onPressed: _cancel,
           child: Text(
             MaterialLocalizations.of(context).cancelButtonLabel,
             style: TextStyle(color: cs.onSurfaceVariant),
@@ -377,7 +397,8 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
         Icon(Icons.favorite, size: 40, color: cs.primary),
         const SizedBox(height: 16),
         Text(_l(widget.positiveTitle, (s) => s.positiveTitle),
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface),
             textAlign: TextAlign.center),
         const SizedBox(height: 8),
         Text(_l(widget.positiveSubtitle, (s) => s.positiveSubtitle),
@@ -399,13 +420,14 @@ class _AppReviewDialogState extends State<AppReviewDialog> {
             width: double.infinity,
             child: OutlinedButton(
               onPressed: _openSupport,
-              child: Text(_l(widget.supportButtonLabel, (s) => s.supportButtonLabel)),
+              child: Text(
+                  _l(widget.supportButtonLabel, (s) => s.supportButtonLabel)),
             ),
           ),
         ],
         const SizedBox(height: 4),
         TextButton(
-          onPressed: _dismiss,
+          onPressed: _cancel,
           child: Text(
             MaterialLocalizations.of(context).cancelButtonLabel,
             style: TextStyle(color: cs.onSurfaceVariant),

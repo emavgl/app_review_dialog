@@ -31,7 +31,7 @@ final result = await AppReviewDialog.show(
   storePackageName: 'com.example.myapp',
 );
 
-print('Rating: ${result?.rating}, Action: ${result?.action}');
+print('Rating: ${result.rating}, Action: ${result.action}');
 ```
 
 ## How it works
@@ -138,15 +138,15 @@ final result = await AppReviewDialog.show(
   storePackageName: 'com.example.myapp',
 );
 
-if (result == null) return;
-
 switch (result.action) {
   case AppReviewDialogAction.ratedPositive:
     analytics.log('review_positive', rating: result.rating);
   case AppReviewDialogAction.ratedNegative:
     analytics.log('review_negative', rating: result.rating);
+  case AppReviewDialogAction.cancelled:
+    analytics.log('review_cancelled'); // explicit "Cancel" button
   case AppReviewDialogAction.dismissed:
-    analytics.log('review_dismissed');
+    analytics.log('review_dismissed'); // back button / tapped outside
 }
 ```
 
@@ -172,12 +172,18 @@ switch (result.action) {
 
 ## Return value
 
-`AppReviewDialogResult` — `null` if never shown.
+`AppReviewDialogResult` — always returned, never `null`.
 
 | Field | Type | Description |
 |---|---|---|
 | `rating` | `double` | 1–5 (integer) |
-| `action` | `AppReviewDialogAction` | `ratedPositive`, `ratedNegative`, `dismissed` |
+| `action` | `AppReviewDialogAction` | `ratedPositive`, `ratedNegative`, `cancelled`, `dismissed` |
+
+`cancelled` means the user tapped the explicit **"Cancel"** button on any
+screen. `dismissed` means they backed out via the device back button/gesture,
+or tapped outside the dialog. This distinction lets you treat an explicit
+"no thanks" differently from an incidental dismissal — e.g. never ask again
+after `cancelled`, but ask again later after `dismissed`.
 
 ## Theming
 

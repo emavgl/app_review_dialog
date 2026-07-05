@@ -27,7 +27,8 @@ class AppReviewStrings {
   });
 
   static AppReviewStrings lookup(Locale locale) {
-    final fullKey = '${locale.languageCode}_${locale.countryCode}'.toLowerCase();
+    final fullKey =
+        '${locale.languageCode}_${locale.countryCode}'.toLowerCase();
     if (_data.containsKey(fullKey) && locale.countryCode != null) {
       return _data[fullKey]!;
     }
@@ -42,14 +43,16 @@ const _data = <String, AppReviewStrings>{
     title: 'How much do you enjoy the app?',
     ratingLabel: 'Tap to rate',
     positiveTitle: 'Thank you!',
-    positiveSubtitle: 'We\'d be grateful if you could share the love leaving a review in the store!',
+    positiveSubtitle:
+        'We\'d be grateful if you could share the love leaving a review in the store!',
     negativeTitle: 'How can we make it better?',
     negativeSubtitle: 'Your feedback helps us improve.',
     rateButtonLabel: 'Rate in store',
     supportButtonLabel: 'Support & Contribute',
     emailButtonLabel: 'Send us an email',
     continueLabel: 'Continue',
-  ),  'ar': AppReviewStrings(
+  ),
+  'ar': AppReviewStrings(
     title: 'ما مدى استمتاعك بالتطبيق؟',
     ratingLabel: 'اضغط للتقييم',
     positiveTitle: 'شكراً لك!',
@@ -60,95 +63,112 @@ const _data = <String, AppReviewStrings>{
     supportButtonLabel: 'الدعم والمساهمة',
     emailButtonLabel: 'أرسل لنا بريداً إلكترونياً',
     continueLabel: 'متابعة',
-  ),  'ca': AppReviewStrings(
+  ),
+  'ca': AppReviewStrings(
     title: 'Quant t\'agrada l\'app?',
     ratingLabel: 'Toca per valorar',
     positiveTitle: 'Gràcies!',
-    positiveSubtitle: 'Estaríem molt agraïts si poguessis compartir l\'amor deixant una ressenya a la botiga!',
+    positiveSubtitle:
+        'Estaríem molt agraïts si poguessis compartir l\'amor deixant una ressenya a la botiga!',
     negativeTitle: 'Com podem millorar?',
     negativeSubtitle: 'Els teus comentaris ens ajuden a millorar.',
     rateButtonLabel: 'Valorar a la botiga',
     supportButtonLabel: 'Suport i contribuir',
     emailButtonLabel: 'Envia\'ns un correu',
     continueLabel: 'Continua',
-  ),  'da': AppReviewStrings(
+  ),
+  'da': AppReviewStrings(
     title: 'Hvor godt kan du lide appen?',
     ratingLabel: 'Tryk for at bedømme',
     positiveTitle: 'Tak!',
-    positiveSubtitle: 'Vi ville være taknemmelige, hvis du ville dele kærligheden ved at efterlade en anmeldelse i butikken!',
+    positiveSubtitle:
+        'Vi ville være taknemmelige, hvis du ville dele kærligheden ved at efterlade en anmeldelse i butikken!',
     negativeTitle: 'Hvordan kan vi gøre det bedre?',
     negativeSubtitle: 'Din feedback hjælper os med at forbedre.',
     rateButtonLabel: 'Bedøm i butik',
     supportButtonLabel: 'Support & Bidrag',
     emailButtonLabel: 'Send os en e-mail',
     continueLabel: 'Fortsæt',
-  ),  'de': AppReviewStrings(
+  ),
+  'de': AppReviewStrings(
     title: 'Wie sehr gefällt dir die App?',
     ratingLabel: 'Tippe zum Bewerten',
     positiveTitle: 'Vielen Dank!',
-    positiveSubtitle: 'Wir würden uns freuen, wenn du deine Begeisterung mit einer Bewertung im Store teilen würdest!',
+    positiveSubtitle:
+        'Wir würden uns freuen, wenn du deine Begeisterung mit einer Bewertung im Store teilen würdest!',
     negativeTitle: 'Was können wir verbessern?',
     negativeSubtitle: 'Dein Feedback hilft uns, besser zu werden.',
     rateButtonLabel: 'Im Store bewerten',
     supportButtonLabel: 'Support & Mitwirken',
     emailButtonLabel: 'E-Mail senden',
     continueLabel: 'Weiter',
-  ),  'el': AppReviewStrings(
+  ),
+  'el': AppReviewStrings(
     title: 'Πόσο απολαμβάνετε την εφαρμογή;',
     ratingLabel: 'Πατήστε για βαθμολόγηση',
     positiveTitle: 'Ευχαριστούμε!',
-    positiveSubtitle: 'Θα ήμασταν ευγνώμονες αν μπορούσατε να μοιραστείτε την αγάπη αφήνοντας μια κριτική στο κατάστημα!',
+    positiveSubtitle:
+        'Θα ήμασταν ευγνώμονες αν μπορούσατε να μοιραστείτε την αγάπη αφήνοντας μια κριτική στο κατάστημα!',
     negativeTitle: 'Πώς μπορούμε να το κάνουμε καλύτερο;',
     negativeSubtitle: 'Τα σχόλιά σας μας βοηθούν να βελτιωθούμε.',
     rateButtonLabel: 'Αξιολόγηση στο κατάστημα',
     supportButtonLabel: 'Υποστήριξη & Συνεισφορά',
     emailButtonLabel: 'Στείλτε μας email',
     continueLabel: 'Συνέχεια',
-  ),  'es': AppReviewStrings(
+  ),
+  'es': AppReviewStrings(
     title: '¿Cuánto disfrutas la app?',
     ratingLabel: 'Toca para valorar',
     positiveTitle: '¡Gracias!',
-    positiveSubtitle: '¡Estaríamos muy agradecidos si pudieras compartir el amor dejando una reseña en la tienda!',
+    positiveSubtitle:
+        '¡Estaríamos muy agradecidos si pudieras compartir el amor dejando una reseña en la tienda!',
     negativeTitle: '¿Cómo podemos mejorarla?',
     negativeSubtitle: 'Tus comentarios nos ayudan a mejorar.',
     rateButtonLabel: 'Valorar en la tienda',
     supportButtonLabel: 'Soporte y contribuir',
     emailButtonLabel: 'Envíanos un correo',
     continueLabel: 'Continuar',
-  ),  'fr': AppReviewStrings(
+  ),
+  'fr': AppReviewStrings(
     title: 'À quel point aimez-vous l\'application ?',
     ratingLabel: 'Appuyez pour noter',
     positiveTitle: 'Merci !',
-    positiveSubtitle: 'Nous serions reconnaissants si vous pouviez partager votre enthousiasme en laissant un avis sur le store !',
+    positiveSubtitle:
+        'Nous serions reconnaissants si vous pouviez partager votre enthousiasme en laissant un avis sur le store !',
     negativeTitle: 'Comment pouvons-nous l\'améliorer ?',
     negativeSubtitle: 'Vos commentaires nous aident à progresser.',
     rateButtonLabel: 'Noter sur le store',
     supportButtonLabel: 'Support & Contribuer',
     emailButtonLabel: 'Envoyez-nous un e-mail',
     continueLabel: 'Continuer',
-  ),  'hr': AppReviewStrings(
+  ),
+  'hr': AppReviewStrings(
     title: 'Koliko uživate u aplikaciji?',
     ratingLabel: 'Dodirnite za ocjenu',
     positiveTitle: 'Hvala!',
-    positiveSubtitle: 'Bili bismo zahvalni ako biste podijelili ljubav ostavljajući recenziju u trgovini!',
+    positiveSubtitle:
+        'Bili bismo zahvalni ako biste podijelili ljubav ostavljajući recenziju u trgovini!',
     negativeTitle: 'Kako možemo poboljšati?',
     negativeSubtitle: 'Vaše povratne informacije pomažu nam da se poboljšamo.',
     rateButtonLabel: 'Ocijeni u trgovini',
     supportButtonLabel: 'Podrška & Doprinesi',
     emailButtonLabel: 'Pošaljite nam e-mail',
     continueLabel: 'Nastavi',
-  ),  'it': AppReviewStrings(
+  ),
+  'it': AppReviewStrings(
     title: 'Quanto ti piace l\'app?',
     ratingLabel: 'Tocca per valutare',
     positiveTitle: 'Grazie!',
-    positiveSubtitle: 'Ti saremmo grati se potessi condividere l\'amore lasciando una recensione nello store!',
+    positiveSubtitle:
+        'Ti saremmo grati se potessi condividere l\'amore lasciando una recensione nello store!',
     negativeTitle: 'Come possiamo migliorare?',
     negativeSubtitle: 'Il tuo feedback ci aiuta a migliorare.',
     rateButtonLabel: 'Valuta nello store',
     supportButtonLabel: 'Supporto & Contribuisci',
     emailButtonLabel: 'Inviaci un\'email',
     continueLabel: 'Continua',
-  ),  'ja': AppReviewStrings(
+  ),
+  'ja': AppReviewStrings(
     title: 'このアプリはどのくらいお楽しみいただいていますか？',
     ratingLabel: 'タップして評価',
     positiveTitle: 'ありがとうございます！',
@@ -159,117 +179,138 @@ const _data = <String, AppReviewStrings>{
     supportButtonLabel: 'サポート & 貢献',
     emailButtonLabel: 'メールを送信',
     continueLabel: '続ける',
-  ),  'or': AppReviewStrings(
+  ),
+  'or': AppReviewStrings(
     title: 'ଆପଣ ଆପଟି କେତେ ଉପଭୋଗ କରନ୍ତି?',
     ratingLabel: 'ମୂଲ୍ୟାଙ୍କନ ପାଇଁ ଟାପ କରନ୍ତୁ',
     positiveTitle: 'ଧନ୍ୟବାଦ!',
-    positiveSubtitle: 'ଯଦି ଆପଣ ଷ୍ଟୋରରେ ଏକ ସମୀକ୍ଷା ଛାଡ଼ି ଭଲ ପାଇବା ବାଣ୍ଟିପାରିବେ ତେବେ ଆମେ କୃତଜ୍ଞ ହେବୁ!',
+    positiveSubtitle:
+        'ଯଦି ଆପଣ ଷ୍ଟୋରରେ ଏକ ସମୀକ୍ଷା ଛାଡ଼ି ଭଲ ପାଇବା ବାଣ୍ଟିପାରିବେ ତେବେ ଆମେ କୃତଜ୍ଞ ହେବୁ!',
     negativeTitle: 'ଆମେ ଏହାକୁ କିପରି ଉନ୍ନତ କରିପାରିବା?',
     negativeSubtitle: 'ଆପଣଙ୍କ ମତାମତ ଆମକୁ ଉନ୍ନତି କରିବାରେ ସାହାଯ୍ୟ କରେ।',
     rateButtonLabel: 'ଷ୍ଟୋରରେ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ',
     supportButtonLabel: 'ସମର୍ଥନ ଏବଂ ଯୋଗଦାନ',
     emailButtonLabel: 'ଆମକୁ ଇମେଲ ପଠାନ୍ତୁ',
     continueLabel: 'ଜାରୀ ରଖନ୍ତୁ',
-  ),  'pl': AppReviewStrings(
+  ),
+  'pl': AppReviewStrings(
     title: 'Jak bardzo podoba Ci się ta aplikacja?',
     ratingLabel: 'Dotknij, aby ocenić',
     positiveTitle: 'Dziękujemy!',
-    positiveSubtitle: 'Bylibyśmy wdzięczni, gdybyś podzielił się opinią, zostawiając recenzję w sklepie!',
+    positiveSubtitle:
+        'Bylibyśmy wdzięczni, gdybyś podzielił się opinią, zostawiając recenzję w sklepie!',
     negativeTitle: 'Jak możemy ją ulepszyć?',
     negativeSubtitle: 'Twoja opinia pomaga nam się rozwijać.',
     rateButtonLabel: 'Oceń w sklepie',
     supportButtonLabel: 'Wsparcie & Współtwórz',
     emailButtonLabel: 'Wyślij nam e-mail',
     continueLabel: 'Kontynuuj',
-  ),  'pt': AppReviewStrings(
+  ),
+  'pt': AppReviewStrings(
     title: 'Quanto você gosta do app?',
     ratingLabel: 'Toque para avaliar',
     positiveTitle: 'Obrigado!',
-    positiveSubtitle: 'Ficaríamos muito gratos se você pudesse compartilhar o amor deixando uma avaliação na loja!',
+    positiveSubtitle:
+        'Ficaríamos muito gratos se você pudesse compartilhar o amor deixando uma avaliação na loja!',
     negativeTitle: 'Como podemos melhorar?',
     negativeSubtitle: 'Seu feedback nos ajuda a melhorar.',
     rateButtonLabel: 'Avaliar na loja',
     supportButtonLabel: 'Suporte & Contribuir',
     emailButtonLabel: 'Envie-nos um e-mail',
     continueLabel: 'Continuar',
-  ),  'pt_br': AppReviewStrings(
+  ),
+  'pt_br': AppReviewStrings(
     title: 'Quanto você gosta do app?',
     ratingLabel: 'Toque para avaliar',
     positiveTitle: 'Obrigado!',
-    positiveSubtitle: 'Ficaríamos muito gratos se você pudesse compartilhar o amor deixando uma avaliação na loja!',
+    positiveSubtitle:
+        'Ficaríamos muito gratos se você pudesse compartilhar o amor deixando uma avaliação na loja!',
     negativeTitle: 'Como podemos melhorar?',
     negativeSubtitle: 'Seu feedback nos ajuda a melhorar.',
     rateButtonLabel: 'Avaliar na loja',
     supportButtonLabel: 'Suporte & Contribuir',
     emailButtonLabel: 'Envie-nos um e-mail',
     continueLabel: 'Continuar',
-  ),  'pt_pt': AppReviewStrings(
+  ),
+  'pt_pt': AppReviewStrings(
     title: 'Quanto gosta da app?',
     ratingLabel: 'Toque para avaliar',
     positiveTitle: 'Obrigado!',
-    positiveSubtitle: 'Ficaríamos muito gratos se pudesse partilhar o amor deixando uma avaliação na loja!',
+    positiveSubtitle:
+        'Ficaríamos muito gratos se pudesse partilhar o amor deixando uma avaliação na loja!',
     negativeTitle: 'Como podemos melhorar?',
     negativeSubtitle: 'O seu feedback ajuda-nos a melhorar.',
     rateButtonLabel: 'Avaliar na loja',
     supportButtonLabel: 'Apoio & Contribuir',
     emailButtonLabel: 'Envie-nos um e-mail',
     continueLabel: 'Continuar',
-  ),  'ru': AppReviewStrings(
+  ),
+  'ru': AppReviewStrings(
     title: 'Насколько вам нравится приложение?',
     ratingLabel: 'Нажмите, чтобы оценить',
     positiveTitle: 'Спасибо!',
-    positiveSubtitle: 'Будем благодарны, если вы поделитесь впечатлениями, оставив отзыв в магазине!',
+    positiveSubtitle:
+        'Будем благодарны, если вы поделитесь впечатлениями, оставив отзыв в магазине!',
     negativeTitle: 'Как мы можем улучшить?',
     negativeSubtitle: 'Ваш отзыв помогает нам становиться лучше.',
     rateButtonLabel: 'Оценить в магазине',
     supportButtonLabel: 'Поддержка & Вклад',
     emailButtonLabel: 'Отправить нам письмо',
     continueLabel: 'Продолжить',
-  ),  'ta': AppReviewStrings(
+  ),
+  'ta': AppReviewStrings(
     title: 'இந்த ஆப்ஸை நீங்கள் எவ்வளவு விரும்புகிறீர்கள்?',
     ratingLabel: 'மதிப்பிட தட்டவும்',
     positiveTitle: 'நன்றி!',
-    positiveSubtitle: 'கடையில் மதிப்பாய்வை விட்டு அன்பைப் பகிர்ந்தால் நாங்கள் நன்றியுள்ளவர்களாக இருப்போம்!',
+    positiveSubtitle:
+        'கடையில் மதிப்பாய்வை விட்டு அன்பைப் பகிர்ந்தால் நாங்கள் நன்றியுள்ளவர்களாக இருப்போம்!',
     negativeTitle: 'நாங்கள் அதை எப்படி மேம்படுத்தலாம்?',
     negativeSubtitle: 'உங்கள் கருத்து எங்களை மேம்படுத்த உதவுகிறது.',
     rateButtonLabel: 'கடையில் மதிப்பிடுங்கள்',
     supportButtonLabel: 'ஆதரவு & பங்களிப்பு',
     emailButtonLabel: 'எங்களுக்கு மின்னஞ்சல் அனுப்புங்கள்',
     continueLabel: 'தொடரவும்',
-  ),  'tr': AppReviewStrings(
+  ),
+  'tr': AppReviewStrings(
     title: 'Uygulamayı ne kadar beğendiniz?',
     ratingLabel: 'Değerlendirmek için dokun',
     positiveTitle: 'Teşekkürler!',
-    positiveSubtitle: 'Mağazada bir yorum bırakarak sevginizi paylaşırsanız çok minnettar oluruz!',
+    positiveSubtitle:
+        'Mağazada bir yorum bırakarak sevginizi paylaşırsanız çok minnettar oluruz!',
     negativeTitle: 'Nasıl daha iyi hale getirebiliriz?',
     negativeSubtitle: 'Geri bildiriminiz gelişmemize yardımcı olur.',
     rateButtonLabel: 'Mağazada değerlendir',
     supportButtonLabel: 'Destek & Katkıda Bulun',
     emailButtonLabel: 'Bize e-posta gönderin',
     continueLabel: 'Devam',
-  ),  'uk': AppReviewStrings(
+  ),
+  'uk': AppReviewStrings(
     title: 'Наскільки вам подобається застосунок?',
     ratingLabel: 'Торкніться, щоб оцінити',
     positiveTitle: 'Дякуємо!',
-    positiveSubtitle: 'Будемо вдячні, якщо ви поділитеся враженнями, залишивши відгук у магазині!',
+    positiveSubtitle:
+        'Будемо вдячні, якщо ви поділитеся враженнями, залишивши відгук у магазині!',
     negativeTitle: 'Як ми можемо покращити?',
     negativeSubtitle: 'Ваш відгук допомагає нам ставати кращими.',
     rateButtonLabel: 'Оцінити в магазині',
     supportButtonLabel: 'Підтримка та внесок',
     emailButtonLabel: 'Надіслати нам лист',
     continueLabel: 'Продовжити',
-  ),  'vec': AppReviewStrings(
+  ),
+  'vec': AppReviewStrings(
     title: 'Quanto te piaze l\'app?',
     ratingLabel: 'Toca par valutar',
     positiveTitle: 'Grasie!',
-    positiveSubtitle: 'Sarìsimo grati se te podessi condividar l\'amor lasando na recension inte el store!',
+    positiveSubtitle:
+        'Sarìsimo grati se te podessi condividar l\'amor lasando na recension inte el store!',
     negativeTitle: 'Come podemo mejorarlo?',
     negativeSubtitle: 'El to feedback ne juta a mejorar.',
     rateButtonLabel: 'Valuta inte el store',
     supportButtonLabel: 'Suporto & Contribuissi',
     emailButtonLabel: 'Màndane na email',
     continueLabel: 'Continua',
-  ),  'zh': AppReviewStrings(
+  ),
+  'zh': AppReviewStrings(
     title: '您有多喜欢这个应用？',
     ratingLabel: '点击评分',
     positiveTitle: '谢谢！',

@@ -1,6 +1,6 @@
 name: app_review_dialog
 description: A beautiful, localised in-app rating dialog for Flutter. Shows a star rating prompt with half-star granularity. Positive ratings invite a store review; lower ratings open a feedback email.
-version: 1.0.0
+version: 2.0.0
 repository: https://github.com/emavgl/app_review_dialog
 issue_tracker: https://github.com/emavgl/app_review_dialog/issues
 
